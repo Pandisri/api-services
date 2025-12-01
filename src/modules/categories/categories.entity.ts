@@ -1,4 +1,4 @@
-import { Column, Entity, PrimaryGeneratedColumn, CreateDateColumn } from "typeorm";
+import { Column, Entity, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn } from "typeorm";
 
 @Entity('categories')
 export class Categories {
@@ -12,7 +12,16 @@ export class Categories {
     @Column({ type: 'varchar', length: 255, unique: true })
     slug: string;
 
-    @CreateDateColumn({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
+    @CreateDateColumn()
     created_at: Date;
+
+    @UpdateDateColumn()
+    updated_at: Date;
+
+    @Column({ type: 'int', nullable: true })
+    created_by: number;
+
+    @Column({ type: 'int', nullable: true })
+    updated_by: number;
 
 }

@@ -30,7 +30,7 @@ export class AuthService {
     if (!match) throw new UnauthorizedException('Invalid password');
 
     const accessToken = await this.jwt.signAsync(
-      { id: user.id, email: user.email },
+      { id: user.id, email: user.email, role: user.role },
       { secret: 'ACCESS_SECRET', expiresIn: '15m' },
     );
 
