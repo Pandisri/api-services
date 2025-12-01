@@ -6,9 +6,10 @@ import { UsersModule } from './modules/users/users.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { databaseConfig } from './config/database.config';
 import { CategoriesModule } from './modules/categories/categories.module';
+import { SubcategoriesModule } from './modules/subcategories/subcategories.module';
 
 @Module({
-  imports: [AuthModule, UsersModule, TypeOrmModule.forRoot(databaseConfig), CategoriesModule],
+  imports: [AuthModule, UsersModule, TypeOrmModule.forRoot(databaseConfig), CategoriesModule, SubcategoriesModule],
   controllers: [AppController],
   providers: [AppService],
 })
